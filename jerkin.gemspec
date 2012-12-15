@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Jerkin::VERSION
   gem.authors       = ["Robbie Clutton"]
   gem.email         = ["robert.clutton@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Gherkin methods that turn strings into methods}
+  gem.summary       = %q{Gherkin methods that turn strings into methods}
   gem.homepage      = ""
 
   gem.add_development_dependency "rspec"

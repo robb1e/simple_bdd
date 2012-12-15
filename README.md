@@ -1,6 +1,6 @@
 # Jerkin
 
-TODO: Write a gem description
+Jerkin offers simple Gherkin language features in tests. It turns strings into method calls so tests can be descriptive and readable without requiring regular expressions that Cucumber gives.
 
 ## Installation
 
@@ -18,7 +18,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+The following will call the 'something_happens' method in scope of the current class or module.
+
+	given "Some state" # calls some_state
+	when "this happens" # calls this_happens
+	then "this change occurs" #calls this_change_occurs
+	and "this other side effect happens" #this_other_side_effect_happens
 
 ## Contributing
 
