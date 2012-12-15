@@ -1,5 +1,12 @@
 require "jerkin/version"
 
 module Jerkin
-  # Your code goes here...
+
+  ["given", "when", "then", "and"].each do |method|
+    define_method(method) do |message| 
+      method = message.downcase.gsub(" ", "_").gsub(/\W/, "")
+      send(method)
+    end
+  end
+
 end
