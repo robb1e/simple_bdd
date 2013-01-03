@@ -4,5 +4,5 @@ RSpec.configure do |config|
   config.filter_run :focus
   config.order = 'random'
   
-  require File.dirname(__FILE__) + '/../lib/jerkin'
+  require File.dirname(__FILE__) + '/../lib/simple_bdd'
 end

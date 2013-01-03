@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-class Jerk
-  include Jerkin
+class SimpleBddExample
+  include SimpleBdd
 end
 
-describe Jerk do
+describe SimpleBddExample do
 
-  let(:subject) { Jerk.new }
+  let(:subject) { SimpleBddExample.new }
 
   describe "#given, #when, #then, #and" do
     ["given", "when", "then", "and", "Given", "When", "Then", "And"].each do |method|

@@ -1,11 +1,11 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'jerkin/version'
+require 'simple_bdd/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "jerkin"
-  gem.version       = Jerkin::VERSION
+  gem.name          = "simple_bdd"
+  gem.version       = SimpleBdd::VERSION
   gem.authors       = ["Robbie Clutton"]
   gem.email         = ["robert.clutton@gmail.com"]
   gem.description   = %q{Gherkin methods that turn strings into methods}

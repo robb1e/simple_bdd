@@ -1,6 +1,6 @@
-require "jerkin/version"
+require "simple_bdd/version"
 
-module Jerkin
+module SimpleBdd
 
   ["given", "when", "then", "and", "Given", "When", "Then", "And"].each do |method|
     define_method(method) do |message| 

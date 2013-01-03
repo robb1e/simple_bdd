@@ -1,13 +1,13 @@
-# Jerkin
+# Simple BDD
 
-Jerkin offers basic Behaviour Driven Development language syntax. It enables tests to take steps to become more declaritive than imperiative by hiding the implementation and revealing test intent. It can be used in any test framework as it's just a way to keep the collaborative business language within a test by calling methods which directly relate to the step in the test.
+Simple BDD offers basic Behaviour Driven Development language syntax. It enables tests to take steps to become more declaritive than imperiative by hiding the implementation and revealing test intent. It can be used in any test framework as it's just a way to keep the collaborative business language within a test by calling methods which directly relate to the step in the test.
 
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'jerkin'
+    gem 'simple_bdd'
 
 And then execute:
 
@@ -15,7 +15,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install jerkin
+    $ gem install simple_bdd
 
 ## Usage
 
