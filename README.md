@@ -25,6 +25,16 @@ The following will call the 'something_happens' method in scope of the current c
 	[Ww]hen "this happens" # calls this_happens
 	[Tt]hen "this change occurs" #calls this_change_occurs
 	[Aa]nd "this other side effect happens" #this_other_side_effect_happens
+	
+## RSpec
+
+You'll need to require SimpleBDD in the spec helper and include it into your tests like so:
+
+	require 'simple_bdd'
+
+	RSpec.configure do |config|
+  	  config.include SimpleBdd
+	end
 
 ## Contributing
 
