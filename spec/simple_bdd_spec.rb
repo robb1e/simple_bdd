@@ -15,4 +15,14 @@ describe SimpleBddExample do
       end
     end
   end
+
+  describe "when the message does not exist" do
+    it "should print to the console" do
+      STDOUT.should_receive(:puts).with("def something_something_darkside\n\nend")
+      method = "given"
+      ->() {
+        subject.send(method, "Something, Something Darkside")
+      }.should raise_error(NoMethodError)
+    end
+  end
 end
