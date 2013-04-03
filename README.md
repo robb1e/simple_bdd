@@ -31,11 +31,11 @@ The following will call the 'something_happens' method in scope of the current c
 
 You'll need to require SimpleBDD in the spec helper and include it into your tests like so:
 
-	require 'simple_bdd'
+    require 'simple_bdd'
 
-	RSpec.configure do |config|
-  	  config.include SimpleBdd
-	end
+    RSpec.configure do |config|
+        config.include SimpleBdd
+    end
 
 ## Contributing
 
