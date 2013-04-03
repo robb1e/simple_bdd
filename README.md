@@ -39,8 +39,17 @@ You'll need to require SimpleBDD in the spec helper and include it into your tes
 
 ## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+* Fork it
+* Ensure your environment is ready for development:
+
+    $ gem install bundler
+    $ rake
+
+* Create your feature branch (`git checkout -b my-new-feature`)
+* Write automated tests and ensure tests pass:
+
+    $ rake
+
+* Commit your changes (`git commit -am 'Add some feature'`)
+* Push to the branch (`git push origin my-new-feature`)
+* Create new Pull Request
