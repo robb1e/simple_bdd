@@ -21,25 +21,35 @@ Or install it yourself as:
 
 The following will call the 'something_happens' method in scope of the current class or module.  
 
-	[Gg]iven "Some state" # calls some_state
-	[Ww]hen "this happens" # calls this_happens
-	[Tt]hen "this change occurs" #calls this_change_occurs
-	[Aa]nd "this other side effect happens" #this_other_side_effect_happens
-	
+    [Gg]iven "Some state" # calls some_state
+    [Ww]hen "this happens" # calls this_happens
+    [Tt]hen "this change occurs" #calls this_change_occurs
+    [Aa]nd "this other side effect happens" #this_other_side_effect_happens
+    [Aa]lso "another side effect happens" #another_side_effect_happens
+
 ## RSpec
 
 You'll need to require SimpleBDD in the spec helper and include it into your tests like so:
 
-	require 'simple_bdd'
+    require 'simple_bdd'
 
-	RSpec.configure do |config|
-  	  config.include SimpleBdd
-	end
+    RSpec.configure do |config|
+        config.include SimpleBdd
+    end
 
 ## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+* Fork it
+* Ensure your environment is ready for development:
+
+    $ gem install bundler
+    $ rake
+
+* Create your feature branch (`git checkout -b my-new-feature`)
+* Write automated tests and ensure tests pass:
+
+    $ rake
+
+* Commit your changes (`git commit -am 'Add some feature'`)
+* Push to the branch (`git push origin my-new-feature`)
+* Create new Pull Request
