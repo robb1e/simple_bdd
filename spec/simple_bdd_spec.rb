@@ -17,12 +17,21 @@ describe SimpleBddExample do
   end
 
   describe "when the message does not exist" do
+    before do
+      @before_examples = SimpleBdd.missing_examples.clone
+    end
+
+    after do
+      SimpleBdd.missing_examples = @before_examples
+    end
+
     it "should print to the console" do
-      STDOUT.should_receive(:puts).with("def something_something_darkside\n\nend")
       method = "given"
       ->() {
         subject.send(method, "Something, Something Darkside")
       }.should raise_error(NoMethodError)
+
+      SimpleBdd.missing_examples.should include("def something_something_darkside\nend")
     end
   end
 end
