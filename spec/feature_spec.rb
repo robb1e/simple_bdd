@@ -1,10 +1,7 @@
-require 'spec_helper'
+require 'rspec'
+require File.dirname(__FILE__) + '/../lib/simple_bdd/rspec'
 
 describe "Dogfooding SimpleBdd" do
-  RSpec.configure do |config|
-    config.include SimpleBdd
-  end
-
   describe "Simple BDD in Rspec" do
     feature "using feature/scenario to describe behavior" do
       scenario "when defining a feature" do
