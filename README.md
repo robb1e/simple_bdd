@@ -28,13 +28,9 @@ The following will call the 'something_happens' method in scope of the current c
 	
 ## RSpec
 
-You'll need to require SimpleBDD in the spec helper and include it into your tests like so:
+You'll need to require the SimpleBDD Rspec configuration
 
-	require 'simple_bdd'
-
-	RSpec.configure do |config|
-  	  config.include SimpleBdd
-	end
+	require 'simple_bdd/rspec'
 
 ## Contributing
 
