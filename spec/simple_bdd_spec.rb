@@ -25,5 +25,9 @@ describe SimpleBddExample do
     it "converts to lower case" do
         subject.send(:methodize, "HELLO WORLD").should == "hello_world"
     end
+
+    it "compacts adjacent separators" do 
+        subject.send(:methodize, "Bates & Lolcat Realty").should == "bates_lolcat_realty"
+    end
   end
 end

@@ -13,7 +13,7 @@ module SimpleBdd
   private
 
   def methodize str
-    str.downcase.gsub(" ", "_").gsub(/\W/, "")
+    str.downcase.gsub(/[^\w ]/, "").gsub(/ +/, "_")
   end
 
 end
