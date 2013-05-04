@@ -12,8 +12,14 @@ module SimpleBdd
 
   private
 
+  PRESERVED_CHARS = '\\w'
+  CONVERTED_CHARS = Regexp.escape(' /')
+
   def methodize str
-    str.downcase.gsub(/[^\w \/]/, "").gsub(/[ \/]+/, "_")
+    str
+      .downcase
+      .gsub(/[^#{PRESERVED_CHARS}#{CONVERTED_CHARS}]/, "")
+      .gsub(/[#{CONVERTED_CHARS}]+/, "_")
   end
 
 end
