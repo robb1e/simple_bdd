@@ -25,7 +25,7 @@ describe SimpleBddExample do
         subject.send(:methodize, "HELLO WORLD").should == "hello_world"
     end
 
-    it "compacts adjacent separators" do 
+    it "compacts adjacent separators" do
         subject.send(:methodize, "Bates & Lolcat Realty").should == "bates_lolcat_realty"
         subject.send(:methodize, "Ruby / Python / Scala, same deal").should == "ruby_python_scala_same_deal"
     end

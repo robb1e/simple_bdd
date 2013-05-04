@@ -15,8 +15,14 @@ module SimpleBdd
     alias_method method.downcase, method
   end
 
+  PRESERVED_CHARS = '\\w'
+  CONVERTED_CHARS = Regexp.escape(' /')
+
   def methodize(message)
-    message.downcase.gsub(/[^\w \/]/, "").gsub(/[ \/]+/, "_")
+    message
+      .downcase
+      .gsub(/[^#{PRESERVED_CHARS}#{CONVERTED_CHARS}]/, "")
+      .gsub(/[#{CONVERTED_CHARS}]+/, "_")
   end
 
   if defined?(::RSpec)
