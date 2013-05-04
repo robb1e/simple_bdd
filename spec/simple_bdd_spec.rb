@@ -28,6 +28,11 @@ describe SimpleBddExample do
 
     it "compacts adjacent separators" do 
         subject.send(:methodize, "Bates & Lolcat Realty").should == "bates_lolcat_realty"
+        subject.send(:methodize, "Ruby / Python / Scala, same deal").should == "ruby_python_scala_same_deal"
+    end
+
+    it "underscores slashes" do
+        subject.send(:methodize, "Chocolate/Vanilla Cake").should == "chocolate_vanilla_cake"
     end
   end
 end
