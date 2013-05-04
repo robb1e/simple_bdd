@@ -16,7 +16,7 @@ module SimpleBdd
   end
 
   def methodize(message)
-    message.downcase.gsub(" ", "_").gsub(/\W/, "")
+    message.downcase.gsub(/[^\w ]/, "").gsub(/ +/, "_")
   end
 
   if defined?(::RSpec)
