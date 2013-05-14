@@ -4,10 +4,10 @@ module SimpleBdd
   %w[Given When Then And Also].each do |method|
     define_method(method) do |message|
       begin
-        send translate(message)
+        send methodize(message)
       rescue NoMethodError => error
         message_does_not_exist(
-          translate(message), error
+          methodize(message), error
         )
       end
     end
@@ -15,8 +15,14 @@ module SimpleBdd
     alias_method method.downcase, method
   end
 
-  def translate(message)
-    message.downcase.gsub(" ", "_").gsub(/\W/, "")
+  PRESERVED_CHARS = '\\w'
+  CONVERTED_CHARS = Regexp.escape(' /')
+
+  def methodize(message)
+    message
+      .downcase
+      .gsub(/[^#{PRESERVED_CHARS}#{CONVERTED_CHARS}]/, "")
+      .gsub(/[#{CONVERTED_CHARS}]+/, "_")
   end
 
   if defined?(::RSpec)
