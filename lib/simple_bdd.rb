@@ -4,12 +4,10 @@ module SimpleBdd
   %w[Given When Then And Also].each do |method|
     define_method(method) do |message|
         method_name = methodize(message)
-        if respond_to? method_name
+        if respond_to? method_name || !defined?(::RSpec)
             send method_name
-        elsif defined?(::RSpec)
-            pending(method_name)
         else
-            send method_name # cause NoMethodError
+            pending(method_name)
         end
     end
 
