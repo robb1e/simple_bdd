@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 class SimpleBddExample
-    include SimpleBdd
+  include SimpleBdd
 
-    def i_call_an_undefined_method
-      undefined_method_raises_error()
-    end
+  def i_call_an_undefined_method
+    undefined_method_raises_error()
+  end
 end
 
 describe "Pending features in rspec" do

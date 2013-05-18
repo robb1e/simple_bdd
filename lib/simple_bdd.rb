@@ -3,12 +3,12 @@ require "simple_bdd/version"
 module SimpleBdd
   %w[Given When Then And Also].each do |method|
     define_method(method) do |message|
-        method_name = methodize(message)
-        if respond_to? method_name || !defined?(::RSpec)
-            send method_name
-        else
-            pending(method_name)
-        end
+      method_name = methodize(message)
+      if respond_to? method_name || !defined?(::RSpec)
+        send method_name
+      else
+        pending(method_name)
+      end
     end
 
     alias_method method.downcase, method
