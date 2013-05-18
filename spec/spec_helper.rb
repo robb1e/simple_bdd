@@ -5,8 +5,4 @@ RSpec.configure do |config|
   config.order = 'random'
 
   require File.dirname(__FILE__) + '/../lib/simple_bdd'
-
-  RSpec.configure do |config|
-    config.include SimpleBdd
-  end
 end
