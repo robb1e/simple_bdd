@@ -3,13 +3,14 @@ require "simple_bdd/version"
 module SimpleBdd
   %w[Given When Then And Also].each do |method|
     define_method(method) do |message|
-      begin
-        send methodize(message)
-      rescue NoMethodError => error
-        message_does_not_exist(
-          methodize(message), error
-        )
-      end
+        method_name = methodize(message)
+        if respond_to? method_name
+            send method_name
+        elsif defined?(::RSpec)
+            pending(method_name)
+        else
+            send method_name # cause NoMethodError
+        end
     end
 
     alias_method method.downcase, method
@@ -23,15 +24,5 @@ module SimpleBdd
       .downcase
       .gsub(/[^#{PRESERVED_CHARS}#{CONVERTED_CHARS}]/, "")
       .gsub(/[#{CONVERTED_CHARS}]+/, "_")
-  end
-
-  if defined?(::RSpec)
-    def message_does_not_exist(message, error)
-      pending(message)
-    end
-  else
-    def message_does_not_exist(message, error)
-      raise error
-    end
   end
 end
