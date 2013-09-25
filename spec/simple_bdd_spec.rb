@@ -34,4 +34,18 @@ describe SimpleBddExample do
       subject.send(:methodize, "Chocolate/Vanilla Cake").should == "chocolate_vanilla_cake"
     end
   end
+
+  ["behavior", "behaviour", "by", "and_by", "it_also", "behaves_like"].each do |method|
+    describe "##{method}" do
+      it 'calls the block' do
+        called = false
+        subject.send(method) do
+          called = true
+        end
+
+        expect(called).to be_true
+      end
+    end
+  end
+
 end

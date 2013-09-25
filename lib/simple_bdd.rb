@@ -23,4 +23,10 @@ module SimpleBdd
       .gsub(/[^#{PRESERVED_CHARS}#{CONVERTED_CHARS}]/, "")
       .gsub(/[#{CONVERTED_CHARS}]+/, "_")
   end
+
+  %w[behavior behaviour behaves_like by and_by it_also].each do |method|
+    define_method(method) do |&block|
+      block.call
+    end
+  end
 end
