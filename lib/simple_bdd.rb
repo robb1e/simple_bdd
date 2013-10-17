@@ -1,7 +1,7 @@
 require "simple_bdd/version"
 
 module SimpleBdd
-  %w[Given When Then And Also].each do |method|
+  %w[Given When Then And Also But].each do |method|
     define_method(method) do |message|
       method_name = methodize(message)
       if respond_to? method_name || !defined?(::RSpec)

@@ -25,6 +25,7 @@ The following will call the 'something_happens' method in scope of the current c
 	[Ww]hen "this happens" # calls this_happens
 	[Tt]hen "this change occurs" #calls this_change_occurs
 	[Aa]nd "this other side effect happens" #this_other_side_effect_happens
+	[Bb]ut "this other thing still happens" #this_other_thing_still_happens
 	
 ## RSpec
 
