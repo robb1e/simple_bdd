@@ -19,12 +19,12 @@ Or install it yourself as:
 
 ## Usage
 
-The following will call the 'something_happens' method in scope of the current class or module.  
+The following will call commented method in scope of the current class or module.  (Every RSpec ```describe``` block is an anonymous class.)
 
 	[Gg]iven "Some state" # calls some_state
 	[Ww]hen "this happens" # calls this_happens
-	[Tt]hen "this change occurs" #calls this_change_occurs
-	[Aa]nd "this other side effect happens" #this_other_side_effect_happens
+	[Tt]hen "this change occurs" # calls this_change_occurs
+	[Aa]nd "this other side effect happens" # calls this_other_side_effect_happens
 	
 ## RSpec
 
