@@ -39,7 +39,7 @@ describe SimpleBddExample do
     describe "##{method}" do
       it 'calls the block' do
         called = false
-        subject.send(method) do
+        subject.send(method, "an unused parameter") do
           called = true
         end
 

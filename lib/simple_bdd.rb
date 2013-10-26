@@ -25,7 +25,7 @@ module SimpleBdd
   end
 
   %w[behavior behaviour behaves_like by and_by it_also].each do |method|
-    define_method(method) do |&block|
+    define_method(method) do |*, &block|
       block.call
     end
   end
