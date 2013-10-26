@@ -19,6 +19,8 @@ Or install it yourself as:
 
 ## Usage
 
+### Standard Usage
+
 The following will call commented method in scope of the current class or module.  (Every RSpec ```describe``` block is an anonymous class.)
 
 	[Gg]iven "Some state" # calls some_state
@@ -26,7 +28,32 @@ The following will call commented method in scope of the current class or module
 	[Tt]hen "this change occurs" # calls this_change_occurs
 	[Bb]ut "this other thing still happens" # calls this_other_thing_still_happens
 	[Aa]nd "this other side effect happens" # calls this_other_side_effect_happens
-	
+
+## Behavior Usage
+
+Some additional methods allow you to group related behaviors in your tests:
+
+    Given "Admin is signed in"
+
+    behavior "admin can manage widgets" do
+        When "Admin views all widgets"
+        Then "Admin sees the first widget"
+    end
+
+    behavior "admin can manage factories" do
+        When "Admin views all factories"
+        Then "Admin sees the first factory"
+    end
+
+Any of the following names can be substituted for ```behavior``` above:
+
+* and_by
+* behaves_like
+* behavior
+* behaviour
+* by
+* it_also
+
 ## RSpec
 
 You'll need to require SimpleBDD in the spec helper and include it into your tests like so:
