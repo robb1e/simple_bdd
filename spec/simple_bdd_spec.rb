@@ -7,8 +7,8 @@ end
 describe SimpleBddExample do
   let(:subject) { SimpleBddExample.new }
 
-  describe "#given, #when, #then, #and, #also" do
-    ["given", "when", "then", "and", "Given", "When", "Then", "And", "Also", "also"].each do |method|
+  describe "#given, #when, #then, #and, #also, #but" do
+    ["given", "when", "then", "and", "Given", "When", "Then", "And", "Also", "also", "But", "but"].each do |method|
       it "calls the method after translating the string" do
         subject.should_receive(:something)
         subject.send(method, "something")
