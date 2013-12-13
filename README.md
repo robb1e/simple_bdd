@@ -64,6 +64,13 @@ You'll need to require SimpleBDD in the spec helper and include it into your tes
   	  config.include SimpleBdd
 	end
 
+By default, SimpleBDD marks specs pending on missing step implementations.
+You can change this behavior to raise an error instead in the spec helper:
+
+        RSpec.configure do |config|
+          config.raise_error_on_missing_step_implementation = true
+        end
+
 ## Contributing
 
 1. Fork it
