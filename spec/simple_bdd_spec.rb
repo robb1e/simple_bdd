@@ -7,11 +7,34 @@ end
 describe SimpleBddExample do
   let(:subject) { SimpleBddExample.new }
 
+  let(:reporter) do
+    double(:reporter, notify: nil)
+  end
+
+  before(:each) do
+    RSpec.configuration.stub(:reporter).and_return(reporter)
+  end
+  after(:each) do
+    RSpec.configuration.unstub(:reporter)
+  end
+
   describe "#given, #when, #then, #and, #also, #but" do
     ["given", "when", "then", "and", "Given", "When", "Then", "And", "Also", "also", "But", "but"].each do |method|
       it "calls the method after translating the string" do
         expect(subject).to receive(:something)
         subject.send(method, "something")
+      end
+
+      it "sends the appropriate start_step notification" do
+        allow(subject).to receive(:something)
+
+        expect(reporter).to receive(:notify) do |type, notification|
+          @notification = notification if type == :before_step
+        end
+
+        subject.send(method, "something")
+        expect(@notification.method).to eq(method.capitalize)
+        expect(@notification.message).to eq("something")
       end
     end
   end

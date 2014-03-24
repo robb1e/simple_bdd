@@ -7,14 +7,18 @@ end
 
 module SimpleBdd
   class StepNotImplemented < StandardError; end
-
+  
   RSpec.configuration.add_setting(:raise_error_on_missing_step_implementation,
                                   default: false) if defined?(::RSpec)
+
+  class StepNotification < Struct.new(:method, :message); end
 
   %w[Given When Then And Also But].each do |method|
     define_method(method) do |message|
       method_name = methodize(message)
       if respond_to? method_name || !defined?(::RSpec)
+        notification = StepNotification.new(method, message)
+        RSpec.configuration.reporter.notify :before_step, notification
         send method_name
       else
         unless RSpec.configuration.raise_error_on_missing_step_implementation?
