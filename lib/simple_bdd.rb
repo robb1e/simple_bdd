@@ -24,7 +24,7 @@ module SimpleBdd
   end
 
   PRESERVED_CHARS = '\\w'
-  CONVERTED_CHARS = Regexp.escape(' /')
+  CONVERTED_CHARS = Regexp.escape(' /-')
 
   def methodize(message)
     message
