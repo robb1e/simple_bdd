@@ -33,6 +33,10 @@ describe SimpleBddExample do
     it "underscores slashes" do
       subject.send(:methodize, "Chocolate/Vanilla Cake").should == "chocolate_vanilla_cake"
     end
+
+    it "underscores hyphens" do
+      subject.send(:methodize, "Red-Velvet Cake").should == "red_velvet_cake"
+    end
   end
 
   ["behavior", "behaviour", "by", "and_by", "it_also", "behaves_like"].each do |method|
