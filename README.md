@@ -61,7 +61,13 @@ Any of the following names can be substituted for `behavior` above:
 
 ## RSpec
 
-You'll need to require SimpleBDD in the spec helper and include it into your tests like so:
+To use SimpleBDD in your tests, simply add the following line to your spec helper:
+
+``` ruby
+require 'simple_bdd/rspec'
+```
+
+Or, if you want to have more control, you can do this instead:
 
 ``` ruby
 require 'simple_bdd'
