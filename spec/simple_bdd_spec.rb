@@ -25,7 +25,7 @@ describe SimpleBddExample do
         subject.send(method, "something")
       end
 
-      it "sends the appropriate start_step notification" do
+      it "sends the appropriate before_step notification" do
         allow(subject).to receive(:something)
 
         expect(reporter).to receive(:notify) do |type, notification|
