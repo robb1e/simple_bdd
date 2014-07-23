@@ -12,11 +12,10 @@ module SimpleBdd
       if respond_to? method_name || !defined?(::RSpec)
         send method_name
       else
-        if RSpec.configuration.raise_error_on_missing_step_implementation?
-          raise StepNotImplemented, method_name
-        else
+        unless RSpec.configuration.raise_error_on_missing_step_implementation?
           pending(method_name)
         end
+        raise StepNotImplemented, method_name
       end
     end
 
