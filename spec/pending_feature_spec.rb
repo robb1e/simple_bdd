@@ -36,7 +36,7 @@ describe "Pending features in rspec" do
     end
 
     it "makes the step pending" do
-      subject.should_receive(:pending).with("i_have_not_defined_a_step")
+      expect(subject).to receive(:pending).with("i_have_not_defined_a_step")
       expect { subject.Given "I have not defined a step" }.to raise_error SimpleBdd::StepNotImplemented
     end
 
