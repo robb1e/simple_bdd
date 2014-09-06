@@ -1,4 +1,6 @@
 require "simple_bdd/version"
+require "simple_bdd/step_not_implemented"
+require "simple_bdd/step_notification"
 
 begin
   require "rspec/core"
@@ -6,12 +8,9 @@ rescue LoadError
 end
 
 module SimpleBdd
-  class StepNotImplemented < StandardError; end
-  
+
   RSpec.configuration.add_setting(:raise_error_on_missing_step_implementation,
                                   default: false) if defined?(::RSpec)
-
-  class StepNotification < Struct.new(:method, :message); end
 
   %w[Given When Then And Also But].each do |method|
     define_method(method) do |message|
