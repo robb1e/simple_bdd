@@ -15,7 +15,7 @@ module SimpleBdd
   %w[Given When Then And Also But].each do |method|
     define_method(method) do |message|
       method_name = methodize(message)
-      if respond_to? method_name || !defined?(::RSpec)
+      if respond_to?(method_name) || !defined?(::RSpec)
         notification = StepNotification.new(method, message)
         RSpec.configuration.reporter.notify :before_step, notification
         send method_name

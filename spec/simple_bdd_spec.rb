@@ -12,10 +12,10 @@ describe SimpleBddExample do
   end
 
   before(:each) do
-    RSpec.configuration.stub(:reporter).and_return(reporter)
+    allow(RSpec.configuration).to receive(:reporter).and_return(reporter)
   end
   after(:each) do
-    RSpec.configuration.unstub(:reporter)
+    allow(RSpec.configuration).to receive(:reporter).and_call_original
   end
 
   describe "#given, #when, #then, #and, #also, #but" do
