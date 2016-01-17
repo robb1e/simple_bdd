@@ -25,6 +25,11 @@ describe SimpleBddExample do
         subject.send(method, "something")
       end
 
+      it "calls the method with a parameter" do
+        expect(subject).to receive(:i_click_on).with('Surprise!')
+        subject.send(method, "I click on", 'Surprise!')
+      end
+
       it "sends the appropriate before_step notification" do
         allow(subject).to receive(:something)
 

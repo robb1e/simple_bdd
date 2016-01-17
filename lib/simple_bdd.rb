@@ -13,12 +13,12 @@ module SimpleBdd
                                   default: false) if defined?(::RSpec)
 
   %w[Given When Then And Also But].each do |method|
-    define_method(method) do |message|
+    define_method(method) do |message, *args|
       method_name = methodize(message)
       if respond_to? method_name || !defined?(::RSpec)
         notification = StepNotification.new(method, message)
         RSpec.configuration.reporter.notify :before_step, notification
-        send method_name
+        send method_name, *args
       else
         unless RSpec.configuration.raise_error_on_missing_step_implementation?
           pending(method_name)
